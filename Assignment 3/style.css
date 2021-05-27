@@ -1,0 +1,60 @@
+body {
+    background: #00467F;
+    background: -webkit-linear-gradient(to right, #A5CC82, #00467F);
+    background: linear-gradient(to right, #A5CC82, #00467F);
+}
+h1 {
+    text-align: center;
+    margin: 40px 0px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+    color: indigo;
+}
+.home-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+}
+.style {
+    margin-right: 20px;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: antiquewhite;
+    font-size: 30px;
+    font-family: cursive;
+    color: brown;
+    font-weight: bold;
+    border: 5px solid black;
+    cursor: pointer;
+}
+.style:hover {
+    text-decoration: underline;
+    color: cornflowerblue;
+}
+form {
+    margin-top: 7%;
+    margin-left: 38%;
+}
+.button {
+    margin-left: 13%;
+    margin-top: 5%;
+    cursor: pointer;
+}
+.button:hover {
+    text-decoration: underline;
+    color: cornflowerblue;
+}
+input {
+    font-size: 25px;
+    border: 3px solid black;
+    border-radius: 7px;
+    font-family: cursive;
+    margin-top: 5px;
+}
+label {
+    font-size: 30px;
+    font-family: cursive;
+    color: darkslategray;
+    font-weight: bold;  
+}
