@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Form</title>
+</head>
+<body>
+    <h1>Places to visit</h1>
+    <table>
+        <tr>
+            <th>Sr No.</th>
+            <th>Images</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>1.</td>
+            <td>
+                <img src="https://cdn1.tripoto.com/media/filter/tst/img/1791424/Image/1614948842_9.jpg" alt="Goa">
+            </td>
+            <td>
+                <p>Goa is a state on the southwestern coast of India within the region known as the Konkan, and geographically separated from the Deccan highlands by the Western Ghats. It is surrounded by the Indian states of Maharashtra to the north and Karnataka to the east and south, with the Arabian Sea forming its western coast. It is India's smallest state by area and its fourth-smallest by population. Goa has the highest GDP per capita among all Indian states, two and a half times as high as the GDP per capita of the country as a whole.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>2.</td>
+            <td>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Charminar_Hyderabad_1.jpg/220px-Charminar_Hyderabad_1.jpg" alt="Hyderabad" style="height: 400px;">
+            </td>
+            <td>
+                <p>Hyderabad is the capital and largest city of the Indian state of Telangana and the de jure capital of Andhra Pradesh. It occupies 650 square kilometres (250 sq mi) on the Deccan Plateau along the banks of the Musi River, in the northern part of South India. With an average altitude of 542 metres (1,778 ft), much of Hyderabad is situated on hilly terrain around artificial lakes, including the Hussain Sagar lake, predating the city's founding, in the north of the city centre.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>3.</td>
+            <td>
+                <img src="https://i.ytimg.com/vi/pKIG0dWrQ3I/maxresdefault.jpg" alt="Bangalore">
+            </td>
+            <td>
+                <p>Bangalore is the capital and the largest city of the Indian state of Karnataka. It has a population of more than 8 million and a metropolitan population of around 11 million, making it the third most populous city and fifth most populous urban agglomeration in India. Located in southern India on the Deccan Plateau, at a height of over 900 m (3,000 ft) above sea level, Bangalore is known for its pleasant climate throughout the year. Its elevation is the highest among the major cities of India.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>4.</td>
+            <td>
+                <img src="https://blog.railyatri.in/wp-content/uploads/2018/11/Best-places-to-visit-in-Mysore.png" alt="Mysore">
+            </td>
+            <td>
+                <p>Mysore is a city in the southern part of the state of Karnataka, India. Mysore city is geographically located between 12° 18′ 26″ north latitude and 76° 38′ 59″ east longitude. It is located at an altitude of 770 m (2,530 ft) above mean sea level. Mysore is located in the foothills of the Chamundi Hills about 145.2 km (90 mi) towards the southwest of Bangalore and spread across an area of 286.05 km2 (110 sq mi). Mysore City Corporation is responsible for the civic administration of the city, which is also the headquarters of the Mysore district and the Mysore division.</p>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <form>
+        <label for="firstName">First Name:</label>
+        <input type="text" name="firstName" id="firstName" placeholder="Enter first name" class="input-tag">
+        <br>
+        <br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" name="lastName" id="lastName" placeholder="Enter last name" class="input-tag">
+        <br>
+        <br>
+        <input type="radio" name="place" id="goa" class="input-tag">
+        <label for="goa">Goa</label>
+        <input type="radio" name="place" id="hyderabad" class="input-tag">
+        <label for="hyderabad">Hyderabad</label>
+        <input type="radio" name="place" id="bangalore" class="input-tag">
+        <label for="bangalore">Bangalore</label>
+        <input type="radio" name="place" id="mysore" class="input-tag">
+        <label for="mysore">Mysore</label>
+        <br>
+        <br>
+        <input type="submit" value="Submit" class="button input-tag">
+    </form>
+</body>
+</html>
