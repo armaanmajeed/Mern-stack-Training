@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const userRoutes = require('./routes/user-routes');
 const adminRoutes = require('./routes/admin-routes');
@@ -36,7 +37,14 @@ app.use((error, req, res, next) => {
 //     res.send(JSON.stringify({Page: "Login", Message: "Please enter the credentials"}));
 // });
 
-// Server Listening
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-});
+// Databse Connection & Server Listening
+mongoose.connect("Connection String", {
+    useUnifiedTopoly: true,
+    useNewUrlParser: true
+}).then(() => {
+        app.listen(port, () => {
+        console.log(`Server running at http://localhost:${port}`);
+    });
+}).catch(err => {
+    console.log(err);
+})
