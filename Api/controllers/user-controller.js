@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const User = require("../models/user");
 const HttpError = require("../utils/http-error");
@@ -44,18 +45,75 @@ const userSignup = async (req, res, next) => {
 
     try{
         await createUser.save();
-        res.json({Message: "User Signed Up!"});
     }catch(err){
         console.log(err);
         const error = new HttpError("Signup failed", 500);
         return next(error);
     }
+
+    // Token creation
+    let token;
+    try{
+        token = jwt.sign({userId: existingUser.id, email: existingUser.email}, "userSecretKey", {expiresIn: "1h"});
+    }catch(err){
+        const error = new HttpError("Login Failed, Please try again later", 500);
+        return next(error);
+    }
+
+    return res.json({
+        userId: createUser.id,
+        email: createUser.email,
+        name: createUser.name,
+        token: token
+    });
 }
 
-const userLogin = (req, res, next) => {
-    console.log(req.body);
+const userLogin = async (req, res, next) => {
+    const {email, password} = req.body;
 
-    res.json({Message: "User Logged In!"});
+    // Check for existing user
+    let existingUser;
+    try{
+        existingUser = await User.findOne({email: email});
+    }catch(err){
+        const error = new HttpError("Login Failed, Please try again later", 500);
+        return next(error);
+    }
+
+    if (!existingUser) {
+        const error = new HttpError("Invalid Credentials, Please try again later", 403);
+        return next(error);
+    }
+
+    // Check for valid password
+    let isValidPassword = false;
+    try{
+        // return true when value matches
+        isValidPassword = await bcrypt.compare(password, existingUser.password);
+    }catch(err){
+        const error = new HttpError("Invalid Credentials, Please try again later", 403);
+        return next(error);
+    }
+
+    if (!isValidPassword) {
+        const error = new HttpError("Invalid Credentials, Please try again later", 403);
+        return next(error);
+    }
+
+    // Token creation
+    let token;
+    try{
+        token = jwt.sign({userId: existingUser.id, email: existingUser.email}, "userSecretKey", {expiresIn: "1h"});
+    }catch(err){
+        const error = new HttpError("Login Failed, Please try again later", 500);
+        return next(error);
+    }
+
+    res.status(200).json({
+        name: existingUser.name,
+        email: existingUser.email,
+        token: token
+    });
 }
 
 const userGetInfo = (req, res, next) => {

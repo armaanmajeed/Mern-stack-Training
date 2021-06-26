@@ -39,7 +39,7 @@ app.use((error, req, res, next) => {
 
 // Databse Connection & Server Listening
 mongoose.connect("Connection String", {
-    useUnifiedTopoly: true,
+    useUnifiedTopology: true,
     useNewUrlParser: true
 }).then(() => {
         app.listen(port, () => {
