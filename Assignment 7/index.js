@@ -28,7 +28,7 @@ app.use((error, req, res, next) => {
 });
 
 // Connection string & Listening
-mongoose.connect('mongodb+srv://armaan_007:Armaan@007@mernstackcluster.mwtkv.mongodb.net/mySecondDatabase?retryWrites=true&w=majority', {
+mongoose.connect('Connection String', {
     useUnifiedTopology: true,
     useNewUrlParser: true
 }).then(() => {
